@@ -1,0 +1,15 @@
+Test project: User management
+
+Stories:
+ - Admin can add new users. A user is identified by a name
+ - Admin can delete users
+ - Admin can asign an user to a group
+ - Admin can remove an user from a group
+ - Admin can add new groups
+ - Admin can delete empty groups
+
+
+Artefacts:
+ - Design an object model for this use case
+ - Create a database model for this object model
+ - Design an API for offering these functions to a JS front end
