@@ -12,7 +12,7 @@ Group = sequelize.define('Group',
         allowNull: false
 )
 
-User = sequelize.define('User',
+User = sequelize.define('User', {
     id:
         type: Sequelize.INTEGER
         autoIncrement: true
@@ -23,7 +23,11 @@ User = sequelize.define('User',
     password:
         type: Sequelize.STRING
         allowNull: false
-)
+}, {
+    instanceMethods:
+        isAdmin: ->
+            return Group.findAll({where: {name: 'admin'}}) in @getGroups()
+})
 
 User.hasMany(Group)
 Group.hasMany(User)

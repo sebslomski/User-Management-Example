@@ -5,7 +5,7 @@
       user = User.find({
         where: req.body.user
       });
-      if (user && user.isAdmin) {
+      if (user && user.isAdmin()) {
         next();
       }
     }

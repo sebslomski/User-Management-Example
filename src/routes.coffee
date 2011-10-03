@@ -1,7 +1,7 @@
 app.all('*', (req, res) ->
     if req.body.user?
         user = User.find(where: req.body.user)
-        if user and user.isAdmin
+        if user and user.isAdmin()
             next()
 
     res.send({error: 'Access denied'}, 401)
