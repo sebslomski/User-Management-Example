@@ -35,7 +35,7 @@ Group.hasMany(User)
 exports.User = User
 exports.Group = Group
 
-sequelize.sync().on('success', -> console.error 'success').on('failure', -> console.error 'failure')
+# sequelize.sync().on('success', -> console.error 'success').on('failure', -> console.error 'failure')
 
 
 # automatic created tables:

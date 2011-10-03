@@ -49,9 +49,4 @@
   Group.hasMany(User);
   exports.User = User;
   exports.Group = Group;
-  sequelize.sync().on('success', function() {
-    return console.error('success');
-  }).on('failure', function() {
-    return console.error('failure');
-  });
 }).call(this);
