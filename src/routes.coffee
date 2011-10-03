@@ -1,3 +1,7 @@
+# All incoming request come at first to this route.
+# If the JSON payload contains a user variable and the user is a member
+# of the admin group, then the request gets passed to the next matching
+# route.
 app.all('*', (req, res) ->
     if req.body.user?
         user = User.find(where: req.body.user)
@@ -7,6 +11,8 @@ app.all('*', (req, res) ->
     res.send({error: 'Access denied'}, 401)
 )
 
+
+# Add a new User
 app.put('/user', (req, res) ->
     if not req.body.payload?
         res.send('No parameters sent', 400)
@@ -20,6 +26,8 @@ app.put('/user', (req, res) ->
             )
 )
 
+
+# Delete an user
 app.delete('/user', (req, res) ->
     if req.body.payload?
         res.send('No parameters sent', 400)
@@ -47,6 +55,7 @@ app.put('/group', (req, res) ->
                 res.send({error: 'Error while adding a new group'}, 400)
             )
 )
+
 
 # Delete an existing group
 app.delete('/group', (req, res) ->
